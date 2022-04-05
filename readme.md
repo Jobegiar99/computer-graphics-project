@@ -27,6 +27,10 @@
   <img src = "https://img.itch.zone/aW1hZ2UvNjcxNzUxLzUzOTc0MDQuZ2lm/original/eodzz6.gif"/>
   <img src = "https://img.itch.zone/aW1hZ2UvNjcxNzUxLzQ2MzIxMDEuZ2lm/original/K3HC%2Fr.gif"/>
   <img src = "https://img.itch.zone/aW1hZ2UvNjcxNzUxLzQ1ODkyOTcuZ2lm/original/nNhkMS.gif"/>
-
+  <h1> Current Progress </h1>
+  <h2> Reception </h2>
+  <img src="https://i.imgur.com/lbUM0hV.png"/>
+  <h2> Kitchen </h2>
+  <img src="https://i.imgur.com/m7MQa1W.png"/>
 
 </div>
