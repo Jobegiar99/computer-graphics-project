@@ -32,5 +32,13 @@
   <img src="https://i.imgur.com/lbUM0hV.png"/>
   <h2> Kitchen </h2>
   <img src="https://i.imgur.com/m7MQa1W.png"/>
+  <h2> Tables </h2>
+  <img src="https://i.imgur.com/FMnHAyP.png"/>
+ <hr>
+  <h1> Artifical Intelligence </h1>
+  <h2> NPCs movement </h2>
+  <h3> Waypoints </h3>
+  <img src="https://i.imgur.com/ZHbZp3z.png"/>
+ 
 
 </div>
