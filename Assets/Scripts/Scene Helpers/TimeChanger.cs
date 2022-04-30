@@ -5,8 +5,7 @@ using UnityEngine;
 public class TimeChanger : MonoBehaviour
 {
         Light myLight;
-        [SerializeField]
-        GameObject Lucy;
+        [SerializeField] GameObject Lucy;
         // Start is called before the first frame update
         void Start()
         {
@@ -21,7 +20,7 @@ public class TimeChanger : MonoBehaviour
                         while(myLight.intensity > 0)
                         {
                                 myLight.intensity -= 0.001f;
-                                yield return new WaitForSecondsRealtime(0.001f);
+                                yield return new WaitForSecondsRealtime(0.01f);
                         }
                         Material mySkybox = RenderSettings.skybox;
                         RenderSettings.skybox = null;
