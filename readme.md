@@ -39,6 +39,9 @@
   <h2> NPCs movement </h2>
   <h3> Waypoints </h3>
   <img src="https://i.imgur.com/ZHbZp3z.png"/>
+ <hr>
+  <h1> Day Night Cycle </h1>
+  <a href="https://imgur.com/UQPtx7y"><img src="https://i.imgur.com/qnHNnUD.png"/><br><h2> Click the image to check the video</a>
  
 
 </div>
