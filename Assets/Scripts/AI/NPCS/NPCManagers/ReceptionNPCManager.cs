@@ -8,6 +8,7 @@ public class ReceptionNPCManager : MonoBehaviour
         [SerializeField] Transform spawnPoint;
         [SerializeField] Transform exitPoint;
         [SerializeField] GameObject npcTemplate;
+        [System.NonSerialized] public bool IsNight = false;
         private List<GameObject> npcs;
         private List<SpecialWaypointInfo> specialWaypointInfo;
 
@@ -21,21 +22,18 @@ public class ReceptionNPCManager : MonoBehaviour
                         specialWaypointInfo.Add(waypointInfo[i].GetComponent<SpecialWaypointInfo>());
                 }
 
-                Invoke("SpawnNPC",0.5f);
-                Invoke("SpawnNPC", 0.5f);
-                Invoke("SpawnNPC", 0.5f);
-                InvokeRepeating("ProcessNPC", 2f, 0.1f);
+                InvokeRepeating("SpawnNPC", 0.5f, 0.25f);
+
+                InvokeRepeating("ProcessNPC", 2f, 0.01f);
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-                //non
-        }
 
         public void SpawnNPC()
         {
                 //spawn the npc;
+                if (Random.Range(0f, 1f) > Random.Range(0f, 0.3f) || IsNight)
+                        return;
+
                 GameObject newNPC = Instantiate(npcTemplate, new Vector3(10.6f, 0.5f, -2.679f), Quaternion.identity);
                 newNPC.GetComponent<ReceptionNPCBrain>().Init(specialWaypointInfo);
                 npcs.Add(newNPC);
@@ -46,23 +44,24 @@ public class ReceptionNPCManager : MonoBehaviour
         {
                 if (npcs.Count == 0)
                         return;
-                Debug.Log(npcs.Count);
-               
-                for(int i = 0; i < npcs.Count ; i++)
+
+                for (int i = 0; i < npcs.Count; i++)
                 {
+
 
                         GameObject npc = npcs[i];
                         ReceptionNPCBrain brain = npc.GetComponent<ReceptionNPCBrain>();
                         State.STATE st = State.STATE.ReceptionMoveToNode;
                         
-                        if (brain.myState.state != st || !brain.CanMove())
+                        if (brain.myState.state != st) {
+                                brain.PerformAction();
+                                continue;
+                        }
+                        if (!brain.CanMove())
                                 continue;
 
                         StateMoveToNode currentState = (StateMoveToNode)brain.myState;
                         brain.PerformAction();
-
-                        if (currentState.stage != State.STAGE.Exit)
-                                return;
 
                         float distanceToExit = Vector3.Distance(
                                     npc.transform.position,
@@ -70,12 +69,18 @@ public class ReceptionNPCManager : MonoBehaviour
                         );
 
                         if (distanceToExit > 2)
-                                return;
+                                continue;
                         //add object pooling
-                        
+                        (
+                                (StateMoveToNode)
+                                        (npc.GetComponent<ReceptionNPCBrain>().myState)
+                        ).waypointInfo[waypointInfo.Count - 1].inUse = false;
+
                         Destroy(npc);
                         npcs.Remove(npc);
-                        
+
+
+
                 }
         }
 }

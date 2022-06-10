@@ -4,14 +4,11 @@ using UnityEngine;
 
 
 public class StateMoveToNode : State
-{
-        //TO DO queue de npcs a los que se les tiene que dar el paso;
-        //estado de esperar o simplemente ver que onda con el update
-        
+{      
         public int waypointIndex;
         public List<SpecialWaypointInfo> waypointInfo;
         public float accuracy = 1.2f;
-        public float speed = 2f;
+        public float speed = 1f;
         public bool canIMove = false;
        
 
@@ -26,6 +23,7 @@ public class StateMoveToNode : State
         public override void Enter()
         {
                 base.Enter();
+
                 if (!waypointInfo[waypointIndex].inUse)
                 {
                         waypointInfo[waypointIndex].inUse = true;
@@ -42,7 +40,7 @@ public class StateMoveToNode : State
 
                 if (hasReachedDestination)
                 {
-                        nextState = new StateMoveToNode(myGameObject, waypointInfo, waypointIndex + 1);
+                        nextState = new StateReceptionInteract(myGameObject, waypointInfo, waypointIndex);
                         stage = STAGE.Exit;
                 }
         }
@@ -50,8 +48,6 @@ public class StateMoveToNode : State
         public override void Exit()
         {
                 base.Exit();
-                waypointInfo[waypointIndex].inUse = false;
-                canIMove = false;
                 //change sprite to iddle
         }
 
