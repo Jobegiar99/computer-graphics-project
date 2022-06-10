@@ -5,7 +5,7 @@ using UnityEngine;
 public class TimeChanger : MonoBehaviour
 {
         Light myLight;
-        [SerializeField] GameObject Lucy;
+        [SerializeField] ReceptionNPCManager receptionNPCManager;
         // Start is called before the first frame update
         void Start()
         {
@@ -20,28 +20,32 @@ public class TimeChanger : MonoBehaviour
                         while(myLight.intensity > 0)
                         {
                                 myLight.intensity -= 0.001f;
-                                yield return new WaitForSecondsRealtime(0.01f);
+
+                                if ( myLight.intensity <= 0.5f)
+                                        receptionNPCManager.IsNight = true;
+
+                                yield return new WaitForSecondsRealtime(0.1f);
                         }
                         Material mySkybox = RenderSettings.skybox;
                         RenderSettings.skybox = null;
                         yield return new WaitForSecondsRealtime(0.4f);
-                        Lucy.SetActive(false);
+                        
                         yield return new WaitForSecondsRealtime(1);
                         Color myAmbient = RenderSettings.ambientLight;
                         RenderSettings.ambientLight = Color.black;
                         RenderSettings.skybox = mySkybox;
                         
-                        yield return new WaitForSeconds(1);
+                        yield return new WaitForSeconds(5);
                         RenderSettings.ambientLight = myAmbient;
                         while (myLight.intensity < 1)
                         {
                                 myLight.intensity += 0.001f;
-                                if (myLight.intensity > 0.3f && !Lucy.activeInHierarchy)
-                                        Lucy.SetActive(true);
+   
                                 if (myLight.intensity > 1)
                                         myLight.intensity = 1;
-                                yield return new WaitForSecondsRealtime(0.001f);
+                                yield return new WaitForSecondsRealtime(0.1f);
                         }
+                        receptionNPCManager.IsNight = false;
                 }
         }
 }

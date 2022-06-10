@@ -9,7 +9,7 @@ public class State
 
         public enum STATE 
         {
-                ReceptionMoveToNode
+                ReceptionMoveToNode,ReceptionInteract
         };
 
         public enum STAGE

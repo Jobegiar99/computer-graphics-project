@@ -7,7 +7,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: chefLucy
+  m_Name: npc_iddle
   m_Speed: 0.7
   m_CycleOffset: 0
   m_Transitions: []
