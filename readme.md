@@ -29,7 +29,7 @@
   <img src = "https://img.itch.zone/aW1hZ2UvNjcxNzUxLzQ1ODkyOTcuZ2lm/original/nNhkMS.gif"/>
   <h1> Current Progress </h1>
   <h2> Reception </h2>
-  <img src="https://i.imgur.com/lbUM0hV.png"/>
+  <img src="https://i.imgur.com/tXtPeLS.png"/>
   <h2> Kitchen </h2>
   <img src="https://i.imgur.com/m7MQa1W.png"/>
   <h2> Tables </h2>
@@ -40,6 +40,9 @@
   <h3> Waypoints </h3>
   <img src="https://i.imgur.com/ZHbZp3z.png"/>
  <hr>
+  <h3> Reception NPCs State Machine </h3>
+  <img src="https://i.imgur.com/BmGgEvD.png"/>
+  <h4> NPCs use a semaphore to create a Queue and Waiting effect </h4>
   <h1> Day Night Cycle </h1>
   <a href="https://imgur.com/UQPtx7y"><img src="https://i.imgur.com/qnHNnUD.png"/><br><h2> Click the image to check the video</a>
  
