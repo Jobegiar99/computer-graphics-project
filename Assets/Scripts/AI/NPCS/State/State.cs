@@ -6,7 +6,7 @@ public class State
 {
         public State nextState;
         public GameObject myGameObject;
-
+        public Animator animator;
         public enum STATE 
         {
                 ReceptionMoveToNode,ReceptionInteract
@@ -20,6 +20,8 @@ public class State
         public State( GameObject myGo)
         {
                 this.myGameObject = myGo;
+                this.animator = myGo.GetComponent<Animator>();
+
         }
 
         public STAGE stage;
@@ -63,4 +65,6 @@ public class State
                
                 return this;
         }
+
+
 }

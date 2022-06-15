@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class ReceptionNPCBrain : MonoBehaviour
 {
+        [SerializeField] GameObject moneyExpression;
+        [SerializeField] GameObject npcResponseExpression;
         public State myState;
+        [System.NonSerialized]public bool interactionEnded = false;
         // Start is called before the first frame update
         public void Init(List<SpecialWaypointInfo> waypointInfo)
         {  
@@ -17,7 +20,6 @@ public class ReceptionNPCBrain : MonoBehaviour
 
                 if (myState.state != State.STATE.ReceptionMoveToNode)
                         return false;
-
 
                 bool canIMove = ((StateMoveToNode)(myState)).canIMove;
              
@@ -33,6 +35,7 @@ public class ReceptionNPCBrain : MonoBehaviour
                 ((StateMoveToNode)(myState)).waypointInfo[waypointIndex].inUse = true;
                 ((StateMoveToNode)(myState)).canIMove = true;
 
+
                 return true;
         }
 
@@ -40,5 +43,36 @@ public class ReceptionNPCBrain : MonoBehaviour
         public void PerformAction() 
         {
                 myState = myState.Process();
+        }
+
+        public void StartInteraction(float time)
+        {
+                interactionEnded = false;
+                StartCoroutine(StopInteraction(time));
+        }
+
+        private IEnumerator StopInteraction(float time)
+        {
+                yield return new WaitForSecondsRealtime(time);
+                interactionEnded = true;
+        }
+
+        public void StartPayInteraction()
+        {
+                moneyExpression.SetActive(true);
+                StartCoroutine(DisableMoneyExpression());
+        }
+
+        private IEnumerator DisableMoneyExpression()
+        {
+                yield return new WaitForSecondsRealtime(1);
+                moneyExpression.SetActive(false);
+
+                if (Random.Range(0f, 1f) < 0.15f)
+                {
+                        npcResponseExpression.SetActive(true);
+                        yield return new WaitForSecondsRealtime(1);
+                        npcResponseExpression.SetActive(false);
+                }
         }
 }

@@ -51,16 +51,16 @@ public class ReceptionNPCManager : MonoBehaviour
 
                         GameObject npc = npcs[i];
                         ReceptionNPCBrain brain = npc.GetComponent<ReceptionNPCBrain>();
-                        State.STATE st = State.STATE.ReceptionMoveToNode;
-                        
-                        if (brain.myState.state != st) {
+
+                        if (brain.myState.state == State.STATE.ReceptionInteract) 
+                        {
                                 brain.PerformAction();
                                 continue;
                         }
+
                         if (!brain.CanMove())
                                 continue;
-
-                        StateMoveToNode currentState = (StateMoveToNode)brain.myState;
+                        
                         brain.PerformAction();
 
                         float distanceToExit = Vector3.Distance(
@@ -70,6 +70,9 @@ public class ReceptionNPCManager : MonoBehaviour
 
                         if (distanceToExit > 2)
                                 continue;
+                        
+
+
                         //add object pooling
                         (
                                 (StateMoveToNode)
@@ -78,8 +81,6 @@ public class ReceptionNPCManager : MonoBehaviour
 
                         Destroy(npc);
                         npcs.Remove(npc);
-
-
 
                 }
         }
