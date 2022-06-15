@@ -26,6 +26,7 @@ public class TimeChanger : MonoBehaviour
 
                                 yield return new WaitForSecondsRealtime(0.1f);
                         }
+
                         Material mySkybox = RenderSettings.skybox;
                         RenderSettings.skybox = null;
                         yield return new WaitForSecondsRealtime(0.4f);

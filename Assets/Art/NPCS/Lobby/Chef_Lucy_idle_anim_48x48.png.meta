@@ -96,6 +96,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -700,6 +701,31 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Chef_Lucy_idle_anim_48x48_11: -7158991897126425972
+      Chef_Lucy_idle_anim_48x48_6: -3208043351443605899
+      Chef_Lucy_idle_anim_48x48_23: -1844113907149110621
+      Chef_Lucy_idle_anim_48x48_1: -1796639566838779441
+      Chef_Lucy_idle_anim_48x48_15: -6038099778675699864
+      Chef_Lucy_idle_anim_48x48_7: -6744747714606978177
+      Chef_Lucy_idle_anim_48x48_12: 3494389947367800795
+      Chef_Lucy_idle_anim_48x48_18: 45660327542603862
+      Chef_Lucy_idle_anim_48x48_22: -8820357546356500275
+      Chef_Lucy_idle_anim_48x48_3: -5819597287272686544
+      Chef_Lucy_idle_anim_48x48_21: 993270546776114383
+      Chef_Lucy_idle_anim_48x48_5: 6537687856148389980
+      Chef_Lucy_idle_anim_48x48_20: -7011771098749984048
+      Chef_Lucy_idle_anim_48x48_19: -2428908728304012683
+      Chef_Lucy_idle_anim_48x48_2: -4574996662391958472
+      Chef_Lucy_idle_anim_48x48_0: 2908866012518604059
+      Chef_Lucy_idle_anim_48x48_16: -365135174472864669
+      Chef_Lucy_idle_anim_48x48_4: 8574231840533976899
+      Chef_Lucy_idle_anim_48x48_8: -8891827933880098327
+      Chef_Lucy_idle_anim_48x48_14: -4905759715067542304
+      Chef_Lucy_idle_anim_48x48_13: 8418052836803192682
+      Chef_Lucy_idle_anim_48x48_17: 1920608246982526275
+      Chef_Lucy_idle_anim_48x48_10: -7731722985115565327
+      Chef_Lucy_idle_anim_48x48_9: -2311941155959931118
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
